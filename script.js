@@ -235,80 +235,6 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Form Submission
-const contactForm = document.querySelector('.contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
-        // WhatsApp Configuration
-        const phoneNumber = "51931187102"; // Número real de Surgas
-
-        // Get product label
-        const productSelect = document.querySelector('#product');
-        const productLabel = productSelect.options[productSelect.selectedIndex].text;
-
-        // Construct Message
-        const message = `Hola Surgas, mi nombre es *${data.name}*.\n\n` +
-            `Quiero pedir un *${productLabel}*.\n` +
-            `Dirección: ${data.address}\n` +
-            `Teléfono: +51 ${data.phone}\n\n` +
-            `_Enviado desde el sitio web._`;
-
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
-
-        // Reset form
-        contactForm.reset();
-    });
-}
-
-// Product Button Click Handlers
-const productButtons = document.querySelectorAll('.product-button');
-
-productButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const productCard = e.target.closest('.product-card');
-        const productName = productCard.querySelector('.product-name').textContent;
-
-        // Scroll to contact form
-        const contactSection = document.querySelector('#contacto');
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-
-        // Pre-fill product selection
-        setTimeout(() => {
-            const productSelect = document.querySelector('#product');
-            if (productName.includes('Premium')) {
-                productSelect.value = 'premium-10';
-            } else if (productName.includes('45')) {
-                productSelect.value = 'large-45';
-            } else {
-                productSelect.value = 'standard-10';
-            }
-        }, 500);
-    });
-});
-
-// CTA Button Click Handler
-const ctaButtons = document.querySelectorAll('.cta-button, .btn-primary');
-
-ctaButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const contactSection = document.querySelector('#contacto');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
 // Intersection Observer for Animations
 const observerOptions = {
     threshold: 0.1,
@@ -325,7 +251,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.service-card, .product-card').forEach(el => {
+document.querySelectorAll('.corp-card, .value-card, .reward-card, .branch-card, .entrepreneur-banner').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
