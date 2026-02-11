@@ -195,116 +195,195 @@
     <!-- Fidelización y Premios -->
     <section id="premios" class="rewards">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Fidelidad</span>
-                <h2 class="section-title">Gana Premios con Nosotros</h2>
-                <p class="section-description">Premiamos tu fidelidad. Siendo cliente de SURGAS participas de diversos
-                    sorteos.</p>
-            </div>
+            <div class="rewards-banner">
+                <div class="rewards-visual">
+                    <img src="img/premios.jpg" alt="Surgas Premios" class="premios-img">
+                    <div class="rewards-overlay"></div>
+                </div>
+                <div class="rewards-content">
+                    <div class="section-header align-left">
+                        <span class="section-tag">Fidelidad</span>
+                        <h2 class="section-title">Gana Premios con Nosotros</h2>
+                        <p class="section-description">Premiamos tu fidelidad. Siendo cliente de SURGAS participas de
+                            diversos sorteos exclusivos.</p>
+                    </div>
 
-            <div class="rewards-grid">
-                <div class="reward-card">
-                    <div class="reward-icon">🎟️</div>
-                    <h4>Vales de Descuento</h4>
-                </div>
-                <div class="reward-card highlight">
-                    <div class="reward-icon">🔥</div>
-                    <h4>Recargas de Balón</h4>
-                </div>
-                <div class="reward-card">
-                    <div class="reward-icon">🍳</div>
-                    <h4>Cocinas</h4>
-                </div>
-                <div class="reward-card">
-                    <div class="reward-icon">❄️</div>
-                    <h4>Refrigeradoras</h4>
-                </div>
-                <div class="reward-card special">
-                    <div class="reward-icon">📱</div>
-                    <h4>iPhone</h4>
+                    <div class="rewards-grid">
+                        <div class="reward-item">
+                            <span class="r-icon">🎟️</span>
+                            <div class="r-info">
+                                <h6>Vales de Descuento</h6>
+                                <p>Ahorra en tu próxima compra.</p>
+                            </div>
+                        </div>
+                        <div class="reward-item">
+                            <span class="r-icon">🔥</span>
+                            <div class="r-info">
+                                <h6>Recargas de Balón</h6>
+                                <p>Cargas gratis para tu hogar.</p>
+                            </div>
+                        </div>
+                        <div class="reward-item">
+                            <span class="r-icon">🍳</span>
+                            <div class="r-info">
+                                <h6>Cocinas</h6>
+                                <p>Equipa tu hogar con lo mejor.</p>
+                            </div>
+                        </div>
+                        <div class="reward-item">
+                            <span class="r-icon">❄️</span>
+                            <div class="r-info">
+                                <h6>Refrigeradoras</h6>
+                                <p>Calidad y espacio para ti.</p>
+                            </div>
+                        </div>
+                        <div class="reward-item highlight">
+                            <span class="r-icon">📱</span>
+                            <div class="r-info">
+                                <h6>iPhone</h6>
+                                <p>El premio mayor te espera.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section / Multi-City -->
+    <!-- Contact Section / Interactive Tabs -->
     <section id="contacto" class="branches">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Zonas de Atención</span>
                 <h2 class="section-title">Central de Pedidos</h2>
-                <p class="section-description">Encuéntranos en las principales ciudades de la región.</p>
+                <p class="section-description">Selecciona tu ciudad para ver los números de atención directa.</p>
             </div>
 
-            <div class="branches-grid">
-                <!-- Tacna -->
-                <div class="branch-card">
-                    <div class="branch-header">
-                        <h3>SURGAS TACNA</h3>
-                    </div>
-                    <div class="branch-body">
-                        <div class="b-item">
-                            <span class="b-icon">📞</span>
-                            <div class="b-numbers">
-                                <a href="tel:052242222">(052) 24 2222</a>
-                                <a href="tel:052248080">(052) 24 8080</a>
-                                <a href="tel:052247070">(052) 24 7070</a>
-                            </div>
-                        </div>
-                        <div class="b-item">
-                            <span class="b-icon">📱</span>
-                            <div class="b-whatsapp">
-                                <label>WhatsApp</label>
-                                <a href="https://wa.me/51952978888">952 978 888</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="branches-wrapper">
+                <div class="branch-tabs">
+                    <button class="tab-btn active" data-city="tacna">Tacna</button>
+                    <button class="tab-btn" data-city="ilo">Ilo</button>
+                    <button class="tab-btn" data-city="arequipa">Arequipa</button>
+                    <button class="tab-btn" data-city="moquegua">Moquegua</button>
                 </div>
 
-                <!-- Ilo -->
-                <div class="branch-card">
-                    <div class="branch-header">
-                        <h3>SURGAS ILO</h3>
-                    </div>
-                    <div class="branch-body">
-                        <div class="b-item">
-                            <span class="b-icon">📞</span>
-                            <div class="b-numbers">
-                                <a href="tel:053496060">(053) 49 6060</a>
-                                <a href="tel:952212122">952 212 122</a>
+                <div class="branch-content-container">
+                    <!-- Tacna -->
+                    <div class="branch-content active" id="tacna">
+                        <div class="branch-details">
+                            <div class="city-badge">Sede Tacna</div>
+                            <h3>Atención Inmediata</h3>
+                            <div class="contact-methods">
+                                <div class="method-group">
+                                    <label>Central Telefónica</label>
+                                    <div class="numbers-grid">
+                                        <a href="tel:052242222" class="phone-link">
+                                            <span class="p-icon">📞</span>
+                                            (052) 24 2222
+                                        </a>
+                                        <a href="tel:052248080" class="phone-link">
+                                            <span class="p-icon">📞</span>
+                                            (052) 24 8080
+                                        </a>
+                                        <a href="tel:052247070" class="phone-link">
+                                            <span class="p-icon">📞</span>
+                                            (052) 24 7070
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="method-group">
+                                    <label>WhatsApp Tacna</label>
+                                    <a href="https://wa.me/51952978888" target="_blank" class="wa-large-btn">
+                                        <span class="wa-icon">💬</span>
+                                        952 978 888
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Arequipa -->
-                <div class="branch-card">
-                    <div class="branch-header">
-                        <h3>SURGAS AREQUIPA</h3>
-                    </div>
-                    <div class="branch-body">
-                        <div class="b-item">
-                            <span class="b-icon">📞</span>
-                            <div class="b-numbers">
-                                <a href="tel:980098900">980 098 900</a>
-                                <a href="tel:054342525">(054) 34 2525</a>
-                            </div>
+                        <div class="branch-visual">
+                            <div class="visual-circle"></div>
+                            <img src="img/logo.png" alt="Surgas Tacna" class="city-visual-img">
                         </div>
                     </div>
-                </div>
 
-                <!-- Moquegua -->
-                <div class="branch-card">
-                    <div class="branch-header">
-                        <h3>SURGAS MOQUEGUA</h3>
-                    </div>
-                    <div class="branch-body">
-                        <div class="b-item">
-                            <span class="b-icon">📞</span>
-                            <div class="b-numbers">
-                                <a href="tel:980020044">980 020 044</a>
-                                <a href="tel:980020077">980 020 077</a>
+                    <!-- Ilo -->
+                    <div class="branch-content" id="ilo">
+                        <div class="branch-details">
+                            <div class="city-badge">Sede Ilo</div>
+                            <h3>Atención Inmediata</h3>
+                            <div class="contact-methods">
+                                <div class="method-group">
+                                    <label>Central Telefónica</label>
+                                    <div class="numbers-grid">
+                                        <a href="tel:053496060" class="phone-link">
+                                            <span class="p-icon">📞</span>
+                                            (053) 49 6060
+                                        </a>
+                                        <a href="tel:952212122" class="phone-link">
+                                            <span class="p-icon">📱</span>
+                                            952 212 122
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="branch-visual">
+                            <div class="visual-circle"></div>
+                            <img src="img/logo.png" alt="Surgas Ilo" class="city-visual-img">
+                        </div>
+                    </div>
+
+                    <!-- Arequipa -->
+                    <div class="branch-content" id="arequipa">
+                        <div class="branch-details">
+                            <div class="city-badge">Sede Arequipa</div>
+                            <h3>Atención Inmediata</h3>
+                            <div class="contact-methods">
+                                <div class="method-group">
+                                    <label>Central Telefónica</label>
+                                    <div class="numbers-grid">
+                                        <a href="tel:980098900" class="phone-link">
+                                            <span class="p-icon">📱</span>
+                                            980 098 900
+                                        </a>
+                                        <a href="tel:054342525" class="phone-link">
+                                            <span class="p-icon">📞</span>
+                                            (054) 34 2525
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="branch-visual">
+                            <div class="visual-circle"></div>
+                            <img src="img/logo.png" alt="Surgas Arequipa" class="city-visual-img">
+                        </div>
+                    </div>
+
+                    <!-- Moquegua -->
+                    <div class="branch-content" id="moquegua">
+                        <div class="branch-details">
+                            <div class="city-badge">Sede Moquegua</div>
+                            <h3>Atención Inmediata</h3>
+                            <div class="contact-methods">
+                                <div class="method-group">
+                                    <label>Central Telefónica</label>
+                                    <div class="numbers-grid">
+                                        <a href="tel:980020044" class="phone-link">
+                                            <span class="p-icon">📱</span>
+                                            980 020 044
+                                        </a>
+                                        <a href="tel:980020077" class="phone-link">
+                                            <span class="p-icon">📱</span>
+                                            980 020 077
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="branch-visual">
+                            <div class="visual-circle"></div>
+                            <img src="img/logo.png" alt="Surgas Moquegua" class="city-visual-img">
                         </div>
                     </div>
                 </div>

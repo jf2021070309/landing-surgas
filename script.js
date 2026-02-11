@@ -38,7 +38,7 @@ class Typewriter {
     }
 }
 
-// Initialize typewriter on page load
+// Initialize everything on page load
 document.addEventListener('DOMContentLoaded', () => {
     const typewriterElement = document.querySelector('.typewriter');
     if (typewriterElement) {
@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize particle network
     initParticleNetwork();
+
+    // Initialize branch tabs
+    initBranchTabs();
 });
 
 // Particle Network Animation
@@ -141,6 +144,9 @@ function initParticleNetwork() {
     function initParticles() {
         particles = [];
         let numberOfParticles = (canvas.width * canvas.height) / 15000;
+        // Cap particles for performance on ultra-wide/low-zoom screens
+        numberOfParticles = Math.min(numberOfParticles, 150);
+
         for (let i = 0; i < numberOfParticles; i++) {
             particles.push(new Particle());
         }
@@ -235,6 +241,34 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
+// Branch Tabs Logic
+function initBranchTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const branchContents = document.querySelectorAll('.branch-content');
+
+    if (!tabBtns.length) return;
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const city = btn.getAttribute('data-city');
+
+            // Toggle buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Toggle content
+            branchContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === city) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
+// Initialize branch tabs - Logic defined below
+
 // Intersection Observer for Animations
 const observerOptions = {
     threshold: 0.1,
@@ -251,7 +285,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.corp-card, .value-card, .reward-card, .branch-card, .entrepreneur-banner').forEach(el => {
+document.querySelectorAll('.corp-card, .value-card, .reward-card, .branches-wrapper, .entrepreneur-banner').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
