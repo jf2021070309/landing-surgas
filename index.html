@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="img/mapdata.js"></script>
 </head>
 
 <body>
@@ -138,33 +139,71 @@
             </div>
 
             <div class="values-section">
-                <h3 class="subsection-title">Nuestros Valores</h3>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <span class="v-icon">🛡️</span>
-                        <h5>Seguridad</h5>
-                        <p>Priorizamos la protección de nuestros clientes y colaboradores.</p>
+                <div class="values-header">
+                    <span class="section-tag">Cultura</span>
+                    <h3 class="subsection-title">Nuestros <span>Valores</span></h3>
+                    <div class="title-accent"></div>
+                    <p class="section-description">Los pilares que guían nuestro compromiso diario con la región.</p>
+                </div>
+                <div class="values-accordion">
+                    <div class="accordion-item active">
+                        <div class="accordion-header">
+                            <div class="header-left">
+                                <span class="v-icon-container">🛡️</span>
+                                <h5>Seguridad</h5>
+                            </div>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Priorizamos la protección de nuestros clientes y colaboradores en cada etapa de nuestro
+                                servicio.</p>
+                        </div>
                     </div>
-                    <div class="value-card">
-                        <span class="v-icon">⚖️</span>
-                        <h5>Responsabilidad</h5>
-                        <p>Cumplimos con las normas y compromisos asumidos.</p>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-left">
+                                <span class="v-icon-container">⚖️</span>
+                                <h5>Responsabilidad</h5>
+                            </div>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Cumplimos con las normas de seguridad vigentes y los compromisos asumidos con total
+                                transparencia.</p>
+                        </div>
                     </div>
-                    <div class="value-card">
-                        <span class="v-icon">⭐</span>
-                        <h5>Calidad</h5>
-                        <p>Ofrecemos productos y servicios confiables.</p>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-left">
+                                <span class="v-icon-container">⭐</span>
+                                <h5>Calidad</h5>
+                            </div>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Ofrecemos productos certificados y servicios de distribución con los más altos estándares
+                                del mercado.</p>
+                        </div>
                     </div>
-                    <div class="value-card">
-                        <span class="v-icon">🤝</span>
-                        <h5>Compromiso</h5>
-                        <p>Trabajamos con vocación de servicio.</p>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="header-left">
+                                <span class="v-icon-container">🤝</span>
+                                <h5>Compromiso</h5>
+                            </div>
+                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Trabajamos con auténtica vocación de servicio para superar las expectativas de nuestra
+                                comunidad.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <br>
+    <br>
     <!-- Red Surgas Emprendedores -->
     <section id="emprendedores" class="entrepreneurs">
         <div class="container">
@@ -230,6 +269,36 @@
                             <span>iPhone</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- National Presence Section -->
+    <section id="mapa-nacional" class="national-presence">
+        <div class="container">
+            <div class="peru-map-wrapper">
+                <div class="map-info">
+                    <span class="section-tag">Presencia</span>
+                    <h2>Conoce nuestras <span>plantas</span> a nivel nacional</h2>
+                    <p>Estamos presentes en puntos estratégicos para garantizar tu energía con calidad de clase mundial.
+                    </p>
+                    <div class="presence-stat">
+                        <div class="stat-item">
+                            <span class="stat-number">26</span>
+                            <span class="stat-label">Regiones</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Compromiso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="peru-svg-container" id="peru-map-container">
+                    <!-- The SVG will be loaded dynamically from img/mapa.svg -->
+                    <div id="map-loader" class="loader-placeholder">Cargando mapa...</div>
+                    <div id="map-tooltip" class="map-tooltip"></div>
                 </div>
             </div>
         </div>

@@ -56,7 +56,241 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Privacy Modal
     initPrivacyModal();
+
+    // Initialize Values Accordion
+    initValuesAccordion();
+
+    // Initialize Interactive Map
+    initInteractiveMap();
 });
+
+// Interactive Map Logic (Custom engine for mapdata.js)
+async function initInteractiveMap() {
+    const container = document.getElementById('peru-map-container');
+    const tooltip = document.getElementById('map-tooltip');
+
+    if (!container) return;
+
+    try {
+        // 1. Fetch the SVG map
+        const response = await fetch('img/mapa.svg');
+        const svgText = await response.text();
+
+        // 2. Inject it (removing the loader)
+        const loader = document.getElementById('map-loader');
+        if (loader) loader.remove();
+
+        // Parse and inject
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+        const svgElement = svgDoc.querySelector('svg');
+
+        if (!svgElement) throw new Error('No SVG element found');
+
+        // Add styling classes
+        svgElement.classList.add('peru-svg-interactive');
+        svgElement.style.width = '100%';
+        svgElement.style.height = '100%';
+        svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        svgElement.setAttribute('viewBox', '0 0 1000 1000');
+
+        container.appendChild(svgElement);
+
+        // 3. City Markers & Informative Cards Logic
+        const cities = [
+            {
+                id: 'tacna',
+                name: 'Sede Tacna',
+                x: 727, y: 921,
+                phone: ['(052) 24 2222', '(052) 24 8080', '(052) 24 7070'],
+                whatsapp: '952 978 888'
+            },
+            {
+                id: 'ilo',
+                name: 'Sede Ilo',
+                x: 675, y: 895,
+                phone: ['(053) 49 6060'],
+                whatsapp: '952 212 122'
+            },
+            {
+                id: 'arequipa',
+                name: 'Sede Arequipa',
+                x: 632, y: 826,
+                phone: ['(054) 34 2525'],
+                whatsapp: '980 098 900'
+            },
+            {
+                id: 'moquegua',
+                name: 'Sede Moquegua',
+                x: 700, y: 881,
+                phone: [],
+                whatsapp: ['980 020 044', '980 020 077']
+            }
+        ];
+
+        const infoCard = document.createElement('div');
+        infoCard.className = 'city-info-card';
+        container.appendChild(infoCard);
+
+        let hideTimeout;
+
+        cities.forEach(city => {
+            const marker = document.createElement('div');
+            marker.className = 'map-marker';
+            marker.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
+            marker.style.left = `${(city.x / 1000) * 100}%`;
+            marker.style.top = `${(city.y / 1000) * 100}%`;
+            container.appendChild(marker);
+
+            const toggleCard = (e) => {
+                e.stopPropagation(); // Avoid closing immediately
+
+                // If it's already open for THIS city, close it
+                if (infoCard.classList.contains('visible') && infoCard.getAttribute('data-active-city') === city.id) {
+                    infoCard.classList.remove('visible');
+                    return;
+                }
+
+                // Close any currently open card before opening a new one
+                infoCard.classList.remove('visible');
+
+                const phoneHtml = city.phone.map(p => `
+                    <a href="tel:${p.replace(/\s/g, '')}" class="contact-item">
+                        <i class="fas fa-phone-alt"></i> ${p}
+                    </a>
+                `).join('');
+
+                const waArray = Array.isArray(city.whatsapp) ? city.whatsapp : [city.whatsapp];
+                const waHtml = waArray.map(w => `
+                    <a href="https://wa.me/51${w.replace(/\s/g, '')}" target="_blank" class="contact-item whatsapp">
+                        <i class="fab fa-whatsapp"></i> ${w}
+                    </a>
+                `).join('');
+
+                infoCard.innerHTML = `
+                    <div class="card-header">
+                        <h3>${city.name}</h3>
+                        <span class="card-status">Atención Inmediata</span>
+                    </div>
+                    <div class="card-body">
+                        <h4>Central Telefónica</h4>
+                        <div class="contact-list">
+                            ${phoneHtml}
+                            ${waHtml}
+                        </div>
+                    </div>
+                `;
+
+                infoCard.style.left = `${(city.x / 1000) * 100}%`;
+                infoCard.style.top = `${(city.y / 1000) * 100}%`;
+                infoCard.setAttribute('data-active-city', city.id);
+                infoCard.classList.add('visible');
+            };
+
+            marker.addEventListener('click', toggleCard);
+
+            // Close card when clicking anywhere else
+            document.addEventListener('click', (e) => {
+                if (!infoCard.contains(e.target) && !marker.contains(e.target)) {
+                    infoCard.classList.remove('visible');
+                }
+            });
+        });
+
+        // 4. Apply settings from mapdata.js
+        const mapData = window.simplemaps_countrymap_mapdata;
+        if (!mapData) {
+            console.error('mapdata.js configuration not found');
+            return;
+        }
+
+        const defaultColor = mapData.main_settings.state_color || '#e0e0e0';
+        const hoverColor = mapData.main_settings.state_hover_color || '#ff6b00';
+        const borderColor = mapData.main_settings.border_color || '#ffffff';
+
+        const paths = svgElement.querySelectorAll('path');
+        paths.forEach(path => {
+            const id = path.id;
+            const stateConfig = mapData.state_specific[id];
+
+            // Apply base style
+            path.classList.add('dept-path');
+            path.style.fill = defaultColor;
+            path.style.stroke = borderColor;
+            path.style.strokeWidth = mapData.main_settings.border_size || '0.5';
+            path.style.transition = 'all 0.3s ease';
+
+            // Events
+            path.addEventListener('mouseenter', (e) => {
+                const name = stateConfig ? stateConfig.name : id;
+                path.style.fill = hoverColor;
+
+                tooltip.textContent = name;
+                tooltip.classList.add('visible');
+            });
+
+            path.addEventListener('mousemove', (e) => {
+                const containerRect = container.getBoundingClientRect();
+                const x = e.clientX - containerRect.left;
+                const y = e.clientY - containerRect.top;
+
+                tooltip.style.left = `${x}px`;
+                tooltip.style.top = `${y}px`;
+            });
+
+            path.addEventListener('mouseleave', () => {
+                path.style.fill = defaultColor;
+                tooltip.classList.remove('visible');
+            });
+
+            // Sync with branch tabs for specific regions
+            path.addEventListener('click', () => {
+                const cityMap = {
+                    'PETAC': 'tacna',
+                    'PEARE': 'arequipa',
+                    'PEMOQ': 'moquegua'
+                };
+
+                const cityId = cityMap[id];
+                if (cityId) {
+                    const tabBtn = document.querySelector(`.tab-btn[data-city="${cityId}"]`);
+                    if (tabBtn) tabBtn.click();
+
+                    // Scroll to contact section
+                    const contactSection = document.getElementById('contacto');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+    } catch (error) {
+        console.error('Error loading map:', error);
+        container.innerHTML = '<p class="error">No se pudo cargar el mapa interactivo.</p>';
+    }
+}
+
+// Values Accordion Logic
+function initValuesAccordion() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all items
+            accordionItems.forEach(i => i.classList.remove('active'));
+
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
 
 // Terms and Conditions Modal Logic
 function initTermsModal() {
