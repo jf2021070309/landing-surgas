@@ -50,7 +50,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize branch tabs
     initBranchTabs();
+
+    // Initialize Terms Modal
+    initTermsModal();
+
+    // Initialize Privacy Modal
+    initPrivacyModal();
 });
+
+// Terms and Conditions Modal Logic
+function initTermsModal() {
+    const modal = document.getElementById('terms-modal');
+    const openBtn = document.getElementById('open-terms');
+    const closeBtn = document.getElementById('close-terms');
+    const closeBtnFooter = document.getElementById('close-terms-btn');
+    const overlay = document.getElementById('modal-overlay');
+
+    setupModalLogic(modal, openBtn, [closeBtn, closeBtnFooter, overlay]);
+}
+
+// Privacy Policy Modal Logic
+function initPrivacyModal() {
+    const modal = document.getElementById('privacy-modal');
+    const openBtn = document.getElementById('open-privacy');
+    const closeBtn = document.getElementById('close-privacy');
+    const closeBtnFooter = document.getElementById('close-privacy-btn');
+    const overlay = document.getElementById('privacy-overlay');
+
+    setupModalLogic(modal, openBtn, [closeBtn, closeBtnFooter, overlay]);
+}
+
+// Helper to handle modal logic
+function setupModalLogic(modal, openBtn, closeElements) {
+    if (!modal || !openBtn) return;
+
+    const openModal = (e) => {
+        if (e) e.preventDefault();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    openBtn.addEventListener('click', openModal);
+
+    closeElements.forEach(el => {
+        if (el) el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
 
 // Particle Network Animation
 function initParticleNetwork() {

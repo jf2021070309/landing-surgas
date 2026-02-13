@@ -418,8 +418,8 @@
                     <div class="footer-column">
                         <h4>Legal</h4>
                         <ul>
-                            <li><a href="#">Privacidad</a></li>
-                            <li><a href="#">Términos</a></li>
+                            <li><a href="#" id="open-privacy">Política de Privacidad</a></li>
+                            <li><a href="#" id="open-terms">Términos y condiciones</a></li>
                         </ul>
                     </div>
                 </div>
@@ -429,6 +429,327 @@
             </div>
         </div>
     </footer>
+
+    <!-- Terms and Conditions Modal -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Términos y Condiciones de Servicio</h3>
+                <button class="modal-close" id="close-terms" aria-label="Cerrar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terms-content">
+                    <h1>TÉRMINOS Y CONDICIONES DE SERVICIO</h1>
+                    <p class="company-name">SURGAS S.A.C.</p>
+
+                    <p>Bienvenido a SURGAS.</p>
+
+                    <p>Los presentes Términos y Condiciones regulan el acceso y uso de nuestros servicios de
+                        comercialización y distribución de gas doméstico y productos relacionados, así como el uso de
+                        nuestros canales digitales, telefónicos y presenciales.</p>
+
+                    <p>Al realizar un pedido, registrarte o utilizar cualquiera de nuestros servicios, aceptas
+                        íntegramente estas condiciones.</p>
+
+                    <section class="terms-section">
+                        <h2>1. Identificación del proveedor</h2>
+                        <ul class="no-bullets">
+                            <li><strong>Razón social:</strong> SURGAS S.A.C.</li>
+                            <li><strong>RUC:</strong> [●]</li>
+                            <li><strong>Domicilio:</strong> [Dirección completa, Ciudad – Perú]</li>
+                            <li><strong>Correo de contacto:</strong> [●]</li>
+                        </ul>
+                        <p>SURGAS es una empresa peruana dedicada a la venta y distribución de balones de gas y
+                            productos complementarios.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>2. Alcance del servicio</h2>
+                        <p>SURGAS brinda servicios de:</p>
+                        <ul>
+                            <li>Venta y distribución de balones de gas GLP</li>
+                            <li>Reposición y recarga de balones</li>
+                            <li>Comercialización de productos relacionados</li>
+                            <li>Atención de pedidos a domicilio</li>
+                        </ul>
+                        <p>Los pedidos pueden realizarse a través de:</p>
+                        <ul>
+                            <li>Sitio web oficial</li>
+                            <li>Aplicaciones de mensajería</li>
+                            <li>Llamadas telefónicas</li>
+                            <li>Canales presenciales autorizados</li>
+                        </ul>
+                        <p>La disponibilidad del servicio está sujeta a cobertura geográfica y stock disponible.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>3. Condiciones de compra</h2>
+                        <p>Al realizar un pedido, el cliente declara que:</p>
+                        <ul>
+                            <li>Es mayor de edad y tiene capacidad legal para contratar.</li>
+                            <li>La información proporcionada es veraz y actualizada.</li>
+                            <li>Se encuentra en una zona de cobertura autorizada.</li>
+                        </ul>
+                        <p>El pedido se considerará confirmado una vez que SURGAS valide la disponibilidad del producto
+                            y coordine la entrega.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>4. Precios y pagos</h2>
+                        <p>Los precios de los productos serán informados al momento de realizar el pedido.</p>
+                        <p>SURGAS se reserva el derecho de modificar precios sin previo aviso; sin embargo, el precio
+                            confirmado al momento del pedido será respetado para esa transacción.</p>
+                        <p>Los pagos podrán realizarse mediante:</p>
+                        <ul>
+                            <li>Efectivo contra entrega</li>
+                            <li>Transferencia bancaria</li>
+                            <li>Y otros medios habilitados por la empresa</li>
+                        </ul>
+                        <p>La emisión del comprobante de pago se realizará conforme a la normativa tributaria vigente.
+                        </p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>5. Entrega del producto</h2>
+                        <p>La entrega se realizará en la dirección indicada por el cliente.</p>
+                        <p>El cliente debe:</p>
+                        <ul>
+                            <li>Garantizar acceso seguro al lugar de entrega.</li>
+                            <li>Verificar el estado del balón al momento de la recepción.</li>
+                            <li>Reportar cualquier observación inmediatamente.</li>
+                        </ul>
+                        <p>El tiempo estimado de entrega puede variar según ubicación, demanda y condiciones externas.
+                        </p>
+                        <p>SURGAS no será responsable por retrasos ocasionados por causas de fuerza mayor o
+                            circunstancias fuera de su control.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>6. Seguridad y uso adecuado</h2>
+                        <p>El cliente se compromete a:</p>
+                        <ul>
+                            <li>Utilizar el balón de gas conforme a normas de seguridad vigentes.</li>
+                            <li>No manipular, alterar o intervenir el producto de forma indeidda.</li>
+                            <li>Mantener el balón en condiciones adecuadas de almacenamiento.</li>
+                        </ul>
+                        <p>SURGAS no será responsable por daños derivados del uso incorrecto o negligente del producto.
+                        </p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>7. Cancelaciones y devoluciones</h2>
+                        <p>Los pedidos podrán cancelarse antes de que el producto haya sido despachado.</p>
+                        <p>Una vez entregado el producto, no se aceptarán devoluciones salvo que:</p>
+                        <ul>
+                            <li>Exista defecto comprobable en el producto.</li>
+                            <li>Se haya producido un error atribuible a SURGAS.</li>
+                        </ul>
+                        <p>Cualquier reclamo deberá comunicarse dentro de las 24 horas posteriores a la entrega.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>8. Protección de datos personales</h2>
+                        <p>El tratamiento de los datos personales se rige por nuestra Política de Privacidad, elaborada
+                            conforme a la Ley N° 29733 y su Reglamento aprobado mediante Decreto Supremo N°
+                            003-2013-JUS.</p>
+                        <p>Al utilizar nuestros servicios, el cliente declara haber leído y aceptado dicha Política.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>9. Responsabilidad</h2>
+                        <p>SURGAS responde por la calidad y condiciones del producto al momento de la entrega.</p>
+                        <p>No será responsable por:</p>
+                        <ul>
+                            <li>Uso indebido del producto.</li>
+                            <li>Instalaciones defectuosas del cliente.</li>
+                            <li>Daños ocasionados por terceros.</li>
+                            <li>Casos fortuitos o de fuerza mayor.</li>
+                        </ul>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>10. Modificaciones</h2>
+                        <p>SURGAS podrá actualizar los presentes Términos y Condiciones cuando lo considere necesario
+                            para mejorar el servicio o adecuarse a cambios normativos.</p>
+                        <p>Las modificaciones serán publicadas en los canales oficiales y entrarán en vigencia desde su
+                            publicación.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>11. Legislación aplicable y jurisdicción</h2>
+                        <p>Los presentes Términos se rigen por las leyes de la República del Perú.</p>
+                        <p>Cualquier controversia será resuelta ante los jueces y tribunales competentes del distrito
+                            judicial correspondiente al domicilio de SURGAS.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>12. Contacto</h2>
+                        <p>Para consultas, reclamos o información adicional:</p>
+                        <ul class="no-bullets">
+                            <li>📧 [correo oficial]</li>
+                            <li>📍 [dirección física]</li>
+                            <li>📞 [teléfono oficial]</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="close-terms-btn">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-overlay" id="privacy-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Política de Privacidad</h3>
+                <button class="modal-close" id="close-privacy" aria-label="Cerrar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terms-content">
+                    <h1>POLÍTICA DE PRIVACIDAD</h1>
+                    <p class="company-name">SURGAS S.A.C.</p>
+
+                    <p>En SURGAS creemos que la confianza es tan importante como la seguridad. Por eso asumimos con
+                        responsabilidad el tratamiento de los datos personales de nuestros clientes, usuarios y
+                        proveedores.</p>
+
+                    <p>La presente Política de Privacidad explica cómo recopilamos, utilizamos, almacenamos y protegemos
+                        la información personal que nos brindas al interactuar con nuestros servicios, en cumplimiento
+                        de la Ley N° 29733 – Ley de Protección de Datos Personales y su Reglamento aprobado mediante
+                        Decreto Supremo N° 003-2013-JUS.</p>
+
+                    <p>Al utilizar nuestro sitio web, aplicaciones de mensajería, líneas telefónicas o cualquier canal
+                        oficial de SURGAS, aceptas las condiciones descritas en esta Política.</p>
+
+                    <section class="terms-section">
+                        <h2>1. ¿Quiénes somos?</h2>
+                        <p>SURGAS S.A.C. es una empresa peruana dedicada a la comercialización y distribución de gas
+                            doméstico y productos relacionados.</p>
+                        <ul class="no-bullets">
+                            <li><strong>Razón social:</strong> SURGAS S.A.C.</li>
+                            <li><strong>RUC:</strong> [●]</li>
+                            <li><strong>Domicilio:</strong> [Dirección completa, Ciudad – Perú]</li>
+                            <li><strong>Correo de contacto:</strong> [●]</li>
+                        </ul>
+                        <p>Somos responsables del tratamiento de los datos personales que recopilamos.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>2. ¿Qué datos personales recopilamos?</h2>
+                        <p>Recopilamos únicamente los datos necesarios para brindarte nuestros servicios de manera
+                            eficiente y segura.</p>
+                        <p>Estos pueden incluir:</p>
+                        <ul>
+                            <li>Nombres y apellidos</li>
+                            <li>Documento de identidad (DNI)</li>
+                            <li>Dirección de entrega</li>
+                            <li>Número telefónico</li>
+                            <li>Correo electrónico</li>
+                            <li>Información de facturación</li>
+                            <li>Historial de pedidos y consumo</li>
+                            <li>Datos necesarios para atención de reclamos o consultas</li>
+                        </ul>
+                        <p>En determinados casos, también podremos recopilar información técnica básica cuando visites
+                            nuestro sitio web (como dirección IP o tipo de dispositivo), con fines estadísticos y de
+                            mejora del servicio.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>3. ¿Para qué utilizamos tus datos?</h2>
+                        <p>En SURGAS utilizamos tus datos personales para:</p>
+                        <ul>
+                            <li>Procesar y entregar pedidos de gas y productos relacionados</li>
+                            <li>Confirmar órdenes y coordinar entregas</li>
+                            <li>Emitir comprobantes de pago</li>
+                            <li>Brindar atención al cliente y soporte</li>
+                            <li>Gestionar reclamos o solicitudes</li>
+                            <li>Cumplir obligaciones legales y regulatorias</li>
+                            <li>Enviarte promociones, ofertas o información comercial (solo si has otorgado tu
+                                consentimiento)</li>
+                        </ul>
+                        <p>No utilizamos tus datos para finalidades distintas a las informadas.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>4. ¿Con quién compartimos la información?</h2>
+                        <p>Podremos compartir tus datos personales únicamente cuando sea necesario para:</p>
+                        <ul>
+                            <li>Empresas de reparto o logística vinculadas al servicio</li>
+                            <li>Proveedores tecnológicos que almacenan información en servidores seguros</li>
+                            <li>Autoridades competentes cuando exista obligación legal</li>
+                        </ul>
+                        <p>En todos los casos, exigimos que los terceros cumplan estándares adecuados de seguridad y
+                            confidencialidad.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>5. ¿Cuánto tiempo conservamos tu información?</h2>
+                        <p>Tus datos personales serán conservados mientras exista una relación comercial contigo y
+                            posteriormente durante el plazo necesario para cumplir obligaciones legales, contables y
+                            tributarias.</p>
+                        <p>Finalizado dicho período, los datos serán eliminados o anonimizados.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>6. Seguridad de la información</h2>
+                        <p>En SURGAS implementamos medidas técnicas, administrativas y organizativas razonables para
+                            proteger tus datos contra pérdida, uso indebido, acceso no autorizado o alteración.</p>
+                        <p>Sin embargo, ningún sistema es completamente infalible, por lo que recomendamos proteger
+                            también tu información personal al interactuar digitalmente.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>7. Derechos del titular de los datos</h2>
+                        <p>Como titular de tus datos personales, puedes ejercer los derechos reconocidos por la ley:</p>
+                        <ul>
+                            <li>Acceso</li>
+                            <li>Rectificación</li>
+                            <li>Cancelación</li>
+                            <li>Oposición</li>
+                        </ul>
+                        <p>Para ejercerlos, deberás enviar una solicitud al correo: [correo ARCO], adjuntando copia de
+                            tu documento de identidad e indicando claramente el derecho que deseas ejercer.</p>
+                        <p>Responderemos dentro de los plazos establecidos por la normativa vigente.</p>
+                        <p>Si consideras que no hemos atendido adecuadamente tu solicitud, puedes acudir ante la
+                            Autoridad Nacional de Protección de Datos Personales del Ministerio de Justicia y Derechos
+                            Humanos del Perú.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>8. Datos de menores de edad</h2>
+                        <p>Nuestros servicios están dirigidos a personas mayores de edad. No recopilamos
+                            intencionalmente datos personales de menores.</p>
+                        <p>Si detectamos que un menor nos ha proporcionado información sin autorización, procederemos a
+                            eliminarla.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>9. Cambios a esta Política</h2>
+                        <p>SURGAS podrá actualizar esta Política de Privacidad cuando sea necesario para adaptarla a
+                            cambios normativos o mejoras en nuestros servicios.</p>
+                        <p>Cualquier modificación será publicada en nuestros canales oficiales.</p>
+                    </section>
+
+                    <section class="terms-section">
+                        <h2>10. Contacto</h2>
+                        <p>Si tienes dudas sobre esta Política o sobre el tratamiento de tus datos personales, puedes
+                            contactarnos en: </p>
+                        <ul class="no-bullets">
+                            <li>📧 [correo oficial]</li>
+                            <li>📍 [dirección física]</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="close-privacy-btn">Entendido</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
