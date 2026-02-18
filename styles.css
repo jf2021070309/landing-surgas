@@ -1076,8 +1076,9 @@ body {
 }
 
 .wa-large-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     padding: 18px 30px;
     background: #25D366;
@@ -1086,6 +1087,9 @@ body {
     border-radius: var(--radius-md);
     font-weight: 800;
     font-size: 1.2rem;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
     box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
     transition: all 0.3s ease;
 }
@@ -1548,13 +1552,16 @@ body {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .map-info h2 {
     font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: var(--spacing-md);
-    line-height: 1.1;
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .map-info p {
@@ -1602,6 +1609,28 @@ body {
 
     .map-info h2 {
         font-size: 2.2rem;
+    }
+
+    .presence-stat {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .peru-map-wrapper {
+        padding: var(--spacing-md);
+    }
+
+    .map-info {
+        text-align: center;
+    }
+
+    .map-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .map-info p {
+        font-size: 1rem;
     }
 }
 
